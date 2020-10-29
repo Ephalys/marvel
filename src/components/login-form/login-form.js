@@ -1,33 +1,50 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components'
+import axios from 'axios'
 
-class LoginForm extends Component {
-    render() {
-        return (
-            <Form action="" method="POST">
-                <FormWrapper>
-                    <Title>
-                        Login
-                    </Title>
-                    <FormGroup>
-                        <Label htmlFor="username">
-                            Username
-                        </Label>
-                        <Input type="text" placeholder="Username" id="username"/>
-                    </FormGroup>
-                    <FormGroup>
-                        <Label htmlFor="password">
-                            Password
-                        </Label>
-                        <Input type="password" placeholder="Password" id="password"/>
-                    </FormGroup>
-                </FormWrapper>
-                <Button>
-                    Login
-                </Button>
-            </Form>
-        );
+const LoginForm = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post(`https://easy-login-api.herokuapp.com/users/login`, {username, password})
+            .then(res => {
+                const token = res.headers['x-access-token'];
+                localStorage.setItem('token', token);
+            })
     }
+
+    return (
+        <Form onSubmit={handleSubmit}>
+            <FormWrapper>
+                <Title>
+                    Login
+                </Title>
+                <FormGroup>
+                    <Label htmlFor="username">
+                        Username
+                    </Label>
+                    <Input type="text"
+                           placeholder="Username"
+                           id="username"
+                           value={username}
+                           onChange={e => setUsername(e.target.value)}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="password">
+                        Password
+                    </Label>
+                    <Input type="password" placeholder="Password" id="password"
+                           value={password}
+                           onChange={e => setPassword(e.target.value)}/>
+                </FormGroup>
+            </FormWrapper>
+            <Button>
+                Login
+            </Button>
+        </Form>
+    );
 }
 
 const Form = styled.form`
