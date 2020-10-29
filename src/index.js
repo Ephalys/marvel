@@ -6,6 +6,9 @@ import { createGlobalStyle } from 'styled-components'
 
 
 const GlobalStyle = createGlobalStyle`
+* {
+box-sizing: border-box;
+}
   body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -32,11 +35,11 @@ const GlobalStyle = createGlobalStyle`
 `
 
 ReactDOM.render(
-  <React.StrictMode>
-      <GlobalStyle />
-      <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        <GlobalStyle />
+        <App />
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

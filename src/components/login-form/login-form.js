@@ -5,18 +5,23 @@ class LoginForm extends Component {
     render() {
         return (
             <Form action="" method="POST">
-                <FormGroup>
-                    <Label htmlFor="username">
-                        Username
-                    </Label>
-                    <Input type="text" placeholder="Username" id="username"/>
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="password">
-                        Password
-                    </Label>
-                    <Input type="password" placeholder="Password" id="password"/>
-                </FormGroup>
+                <FormWrapper>
+                    <Title>
+                        Login
+                    </Title>
+                    <FormGroup>
+                        <Label htmlFor="username">
+                            Username
+                        </Label>
+                        <Input type="text" placeholder="Username" id="username"/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor="password">
+                            Password
+                        </Label>
+                        <Input type="password" placeholder="Password" id="password"/>
+                    </FormGroup>
+                </FormWrapper>
                 <Button>
                     Login
                 </Button>
@@ -27,6 +32,15 @@ class LoginForm extends Component {
 
 const Form = styled.form`
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 2 1 0;
+`
+
+const FormWrapper = styled.div`
+  align-self: stretch;
+  height: 100%;
 `
 
 const FormGroup = styled.div`
@@ -63,7 +77,7 @@ const Button = styled.button`
   width: 100%;
   border-radius: 10px;
   border: none;
-  background: linear-gradient(-45deg, #9eff00, #e73c7e, #1900fc);
+  background: linear-gradient(-45deg, #9eff00, #1900fc, #e73c7e);
   color: white;
   cursor: pointer;
   font-size: 16px;
@@ -74,6 +88,10 @@ const Button = styled.button`
       background-size: 150% 150%;
       transition: all .5s;
   }
+`
+
+const Title = styled.h1`
+  margin: 30px 0;
 `
 
 export default LoginForm;

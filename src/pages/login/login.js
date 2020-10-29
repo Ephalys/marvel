@@ -8,16 +8,14 @@ function Login() {
     return (
         <LoginDiv>
             <LoginContent>
-                <Img src={logo} alt="logo marvel"/>
-                <Title>
-                    Login
-                </Title>
+                <ImageWrapper>
+                    <Img src={logo} alt="logo marvel"/>
+                </ImageWrapper>
                 <LoginForm/>
             </LoginContent>
         </LoginDiv>
     );
 }
-
 
 const LoginDiv = styled.div`
     display: flex;
@@ -29,22 +27,36 @@ const LoginDiv = styled.div`
 
 const LoginContent = styled.div`
   background-color: white;
-  min-width: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  
+  @media (min-width: 768px) {
   padding: 60px;
+  min-width: 350px;
+  width: unset;
+  height: unset;
   border-radius: 15px;
   box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.2);
+  }
+`
+
+const ImageWrapper = styled.div`
+  flex: 1 1 0;
+  align-items: center;
+  display: flex;
 `
 
 const Img = styled.img`
-  max-width: 250px;
-`
-
-const Title = styled.h1`
-  margin: 30px 0;
+  max-width: 150px;
+  
+  @media (min-width: 768px) {
+    max-width: 250px;
+  }
 `
 
 export default Login;
