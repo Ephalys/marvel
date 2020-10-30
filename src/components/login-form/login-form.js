@@ -1,8 +1,12 @@
 import React, {useState} from 'react';
 import styled from 'styled-components'
 import axios from 'axios'
+import { useHistory } from "react-router-dom";
 
-const LoginForm = () => {
+
+const LoginForm = (props) => {
+    let history = useHistory();
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -12,6 +16,7 @@ const LoginForm = () => {
             .then(res => {
                 const token = res.headers['x-access-token'];
                 localStorage.setItem('token', token);
+                history.push('/comics')
             })
     }
 

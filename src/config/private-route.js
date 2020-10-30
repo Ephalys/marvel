@@ -8,7 +8,6 @@ const  PrivateRoute: React.FC<{
 }> = (props) => {
 
     const condition = localStorage.getItem('token');
-    console.log(condition);
 
     return  condition ? (<Route  path={props.path}  exact={props.exact} component={props.component} />) :
         (<Redirect  to="/"  />);

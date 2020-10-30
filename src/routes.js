@@ -6,7 +6,7 @@ import {
     Link
 } from "react-router-dom";
 import App from "pages/App";
-import Characters from "pages/characters";
+import Comics from "pages/comics";
 
 export default function RouteConfigExample() {
     return (
@@ -17,7 +17,7 @@ export default function RouteConfigExample() {
                         <Link to="/">App</Link>
                     </li>
                     <li>
-                        <Link to="/characters">Characters</Link>
+                        <Link to="/comics">Comics</Link>
                     </li>
                 </ul>
 
@@ -25,8 +25,8 @@ export default function RouteConfigExample() {
                     <Route exact path="/">
                         <App />
                     </Route>
-                    <Route path="/characters">
-                        <Characters />
+                    <Route path="/comics">
+                        <Comics />
                     </Route>
                 </Switch>
             </div>
