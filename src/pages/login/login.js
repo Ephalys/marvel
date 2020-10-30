@@ -21,6 +21,10 @@ const LoginDiv = styled.div`
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    
+    @media (min-width: 768px) {
+        padding: 10% 0;
+    }
 `
 
 const LoginContent = styled.div`
@@ -37,7 +41,6 @@ const LoginContent = styled.div`
   padding: 60px;
   min-width: 350px;
   width: unset;
-  height: unset;
   border-radius: 15px;
   box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.2);
   }
