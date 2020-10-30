@@ -7,6 +7,7 @@ import {
 import Characters from "pages/characters/characters";
 import Login from "pages/login/login";
 import Nomatch from "pages/nomatch/nomatch"
+import PrivateRoute from "config/private-route";
 
 const Router = () => {
     return (
@@ -15,9 +16,7 @@ const Router = () => {
                 <Route exact path="/">
                     <Login />
                 </Route>
-                <Route path="/characters">
-                    <Characters />
-                </Route>
+                <PrivateRoute  path="/characters"  component={Characters}  exact  />
                 <Route path="*">
                     <Nomatch />
                 </Route>
